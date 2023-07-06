@@ -45,6 +45,7 @@
 		8B25BC752A57366100D42095 /* ft_hangoutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ft_hangoutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITests.swift; sourceTree = "<group>"; };
 		8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8B25BC882A573ACD00D42095 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +76,7 @@
 		8B25BC512A57366000D42095 = {
 			isa = PBXGroup;
 			children = (
+				8B25BC882A573ACD00D42095 /* README.md */,
 				8B25BC5C2A57366000D42095 /* ft_hangouts */,
 				8B25BC6E2A57366100D42095 /* ft_hangoutsTests */,
 				8B25BC782A57366100D42095 /* ft_hangoutsUITests */,
