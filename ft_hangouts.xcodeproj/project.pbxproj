@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B25BC5E2A57366000D42095 /* ft_hangoutsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC5D2A57366000D42095 /* ft_hangoutsApp.swift */; };
+		8B25BC602A57366000D42095 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC5F2A57366000D42095 /* ContentView.swift */; };
+		8B25BC622A57366100D42095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B25BC612A57366100D42095 /* Assets.xcassets */; };
+		8B25BC662A57366100D42095 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B25BC652A57366100D42095 /* Preview Assets.xcassets */; };
+		8B25BC702A57366100D42095 /* ft_hangoutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC6F2A57366100D42095 /* ft_hangoutsTests.swift */; };
+		8B25BC7A2A57366100D42095 /* ft_hangoutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */; };
+		8B25BC7C2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B25BC6C2A57366100D42095 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B25BC522A57366000D42095 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B25BC592A57366000D42095;
+			remoteInfo = ft_hangouts;
+		};
+		8B25BC762A57366100D42095 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B25BC522A57366000D42095 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B25BC592A57366000D42095;
+			remoteInfo = ft_hangouts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B25BC5A2A57366000D42095 /* ft_hangouts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ft_hangouts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B25BC5D2A57366000D42095 /* ft_hangoutsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsApp.swift; sourceTree = "<group>"; };
+		8B25BC5F2A57366000D42095 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8B25BC612A57366100D42095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B25BC632A57366100D42095 /* ft_hangouts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ft_hangouts.entitlements; sourceTree = "<group>"; };
+		8B25BC652A57366100D42095 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8B25BC6B2A57366100D42095 /* ft_hangoutsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ft_hangoutsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B25BC6F2A57366100D42095 /* ft_hangoutsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsTests.swift; sourceTree = "<group>"; };
+		8B25BC752A57366100D42095 /* ft_hangoutsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ft_hangoutsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITests.swift; sourceTree = "<group>"; };
+		8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B25BC572A57366000D42095 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC682A57366100D42095 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC722A57366100D42095 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B25BC512A57366000D42095 = {
+			isa = PBXGroup;
+			children = (
+				8B25BC5C2A57366000D42095 /* ft_hangouts */,
+				8B25BC6E2A57366100D42095 /* ft_hangoutsTests */,
+				8B25BC782A57366100D42095 /* ft_hangoutsUITests */,
+				8B25BC5B2A57366000D42095 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8B25BC5B2A57366000D42095 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B25BC5A2A57366000D42095 /* ft_hangouts.app */,
+				8B25BC6B2A57366100D42095 /* ft_hangoutsTests.xctest */,
+				8B25BC752A57366100D42095 /* ft_hangoutsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B25BC5C2A57366000D42095 /* ft_hangouts */ = {
+			isa = PBXGroup;
+			children = (
+				8B25BC5D2A57366000D42095 /* ft_hangoutsApp.swift */,
+				8B25BC5F2A57366000D42095 /* ContentView.swift */,
+				8B25BC612A57366100D42095 /* Assets.xcassets */,
+				8B25BC632A57366100D42095 /* ft_hangouts.entitlements */,
+				8B25BC642A57366100D42095 /* Preview Content */,
+			);
+			path = ft_hangouts;
+			sourceTree = "<group>";
+		};
+		8B25BC642A57366100D42095 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8B25BC652A57366100D42095 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8B25BC6E2A57366100D42095 /* ft_hangoutsTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B25BC6F2A57366100D42095 /* ft_hangoutsTests.swift */,
+			);
+			path = ft_hangoutsTests;
+			sourceTree = "<group>";
+		};
+		8B25BC782A57366100D42095 /* ft_hangoutsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */,
+				8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */,
+			);
+			path = ft_hangoutsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B25BC592A57366000D42095 /* ft_hangouts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B25BC7F2A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangouts" */;
+			buildPhases = (
+				8B25BC562A57366000D42095 /* Sources */,
+				8B25BC572A57366000D42095 /* Frameworks */,
+				8B25BC582A57366000D42095 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ft_hangouts;
+			productName = ft_hangouts;
+			productReference = 8B25BC5A2A57366000D42095 /* ft_hangouts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B25BC6A2A57366100D42095 /* ft_hangoutsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B25BC822A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangoutsTests" */;
+			buildPhases = (
+				8B25BC672A57366100D42095 /* Sources */,
+				8B25BC682A57366100D42095 /* Frameworks */,
+				8B25BC692A57366100D42095 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B25BC6D2A57366100D42095 /* PBXTargetDependency */,
+			);
+			name = ft_hangoutsTests;
+			productName = ft_hangoutsTests;
+			productReference = 8B25BC6B2A57366100D42095 /* ft_hangoutsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B25BC742A57366100D42095 /* ft_hangoutsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B25BC852A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangoutsUITests" */;
+			buildPhases = (
+				8B25BC712A57366100D42095 /* Sources */,
+				8B25BC722A57366100D42095 /* Frameworks */,
+				8B25BC732A57366100D42095 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B25BC772A57366100D42095 /* PBXTargetDependency */,
+			);
+			name = ft_hangoutsUITests;
+			productName = ft_hangoutsUITests;
+			productReference = 8B25BC752A57366100D42095 /* ft_hangoutsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B25BC522A57366000D42095 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					8B25BC592A57366000D42095 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					8B25BC6A2A57366100D42095 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 8B25BC592A57366000D42095;
+					};
+					8B25BC742A57366100D42095 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 8B25BC592A57366000D42095;
+					};
+				};
+			};
+			buildConfigurationList = 8B25BC552A57366000D42095 /* Build configuration list for PBXProject "ft_hangouts" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B25BC512A57366000D42095;
+			productRefGroup = 8B25BC5B2A57366000D42095 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8B25BC592A57366000D42095 /* ft_hangouts */,
+				8B25BC6A2A57366100D42095 /* ft_hangoutsTests */,
+				8B25BC742A57366100D42095 /* ft_hangoutsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B25BC582A57366000D42095 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B25BC662A57366100D42095 /* Preview Assets.xcassets in Resources */,
+				8B25BC622A57366100D42095 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC692A57366100D42095 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC732A57366100D42095 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B25BC562A57366000D42095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B25BC602A57366000D42095 /* ContentView.swift in Sources */,
+				8B25BC5E2A57366000D42095 /* ft_hangoutsApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC672A57366100D42095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B25BC702A57366100D42095 /* ft_hangoutsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B25BC712A57366100D42095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B25BC7A2A57366100D42095 /* ft_hangoutsUITests.swift in Sources */,
+				8B25BC7C2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8B25BC6D2A57366100D42095 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B25BC592A57366000D42095 /* ft_hangouts */;
+			targetProxy = 8B25BC6C2A57366100D42095 /* PBXContainerItemProxy */;
+		};
+		8B25BC772A57366100D42095 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B25BC592A57366000D42095 /* ft_hangouts */;
+			targetProxy = 8B25BC762A57366100D42095 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8B25BC7D2A57366100D42095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B25BC7E2A57366100D42095 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8B25BC802A57366100D42095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ft_hangouts/ft_hangouts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ft_hangouts/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangouts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B25BC812A57366100D42095 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ft_hangouts/ft_hangouts.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ft_hangouts/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangouts";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8B25BC832A57366100D42095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangoutsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ft_hangouts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ft_hangouts";
+			};
+			name = Debug;
+		};
+		8B25BC842A57366100D42095 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangoutsTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ft_hangouts.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ft_hangouts";
+			};
+			name = Release;
+		};
+		8B25BC862A57366100D42095 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangoutsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ft_hangouts;
+			};
+			name = Debug;
+		};
+		8B25BC872A57366100D42095 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.42.ft-hangoutsUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ft_hangouts;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B25BC552A57366000D42095 /* Build configuration list for PBXProject "ft_hangouts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B25BC7D2A57366100D42095 /* Debug */,
+				8B25BC7E2A57366100D42095 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B25BC7F2A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangouts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B25BC802A57366100D42095 /* Debug */,
+				8B25BC812A57366100D42095 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B25BC822A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangoutsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B25BC832A57366100D42095 /* Debug */,
+				8B25BC842A57366100D42095 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B25BC852A57366100D42095 /* Build configuration list for PBXNativeTarget "ft_hangoutsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B25BC862A57366100D42095 /* Debug */,
+				8B25BC872A57366100D42095 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B25BC522A57366000D42095 /* Project object */;
+}
