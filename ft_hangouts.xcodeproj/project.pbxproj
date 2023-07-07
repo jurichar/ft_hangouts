@@ -14,6 +14,9 @@
 		8B25BC702A57366100D42095 /* ft_hangoutsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC6F2A57366100D42095 /* ft_hangoutsTests.swift */; };
 		8B25BC7A2A57366100D42095 /* ft_hangoutsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */; };
 		8B25BC7C2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */; };
+		8BB09E362A580D5300A48F3B /* ContactsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BB09E342A580D5300A48F3B /* ContactsData.xcdatamodeld */; };
+		8BB09E382A580DBC00A48F3B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB09E372A580DBB00A48F3B /* Contact.swift */; };
+		8BB09E3C2A580FAF00A48F3B /* ContactsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB09E3B2A580FAF00A48F3B /* ContactsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		8B25BC792A57366100D42095 /* ft_hangoutsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITests.swift; sourceTree = "<group>"; };
 		8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ft_hangoutsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8B25BC882A573ACD00D42095 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8BB09E352A580D5300A48F3B /* ContactData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ContactData.xcdatamodel; sourceTree = "<group>"; };
+		8BB09E372A580DBB00A48F3B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		8BB09E3B2A580FAF00A48F3B /* ContactsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,10 +103,13 @@
 		8B25BC5C2A57366000D42095 /* ft_hangouts */ = {
 			isa = PBXGroup;
 			children = (
+				8BB09E3A2A580F9B00A48F3B /* Provider */,
+				8BB09E392A580E1000A48F3B /* Model */,
 				8B25BC5D2A57366000D42095 /* ft_hangoutsApp.swift */,
 				8B25BC5F2A57366000D42095 /* ContentView.swift */,
 				8B25BC612A57366100D42095 /* Assets.xcassets */,
 				8B25BC632A57366100D42095 /* ft_hangouts.entitlements */,
+				8BB09E342A580D5300A48F3B /* ContactsData.xcdatamodeld */,
 				8B25BC642A57366100D42095 /* Preview Content */,
 			);
 			path = ft_hangouts;
@@ -129,6 +138,22 @@
 				8B25BC7B2A57366100D42095 /* ft_hangoutsUITestsLaunchTests.swift */,
 			);
 			path = ft_hangoutsUITests;
+			sourceTree = "<group>";
+		};
+		8BB09E392A580E1000A48F3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BB09E372A580DBB00A48F3B /* Contact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8BB09E3A2A580F9B00A48F3B /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				8BB09E3B2A580FAF00A48F3B /* ContactsProvider.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +286,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB09E382A580DBC00A48F3B /* Contact.swift in Sources */,
+				8BB09E3C2A580FAF00A48F3B /* ContactsProvider.swift in Sources */,
+				8BB09E362A580D5300A48F3B /* ContactsData.xcdatamodeld in Sources */,
 				8B25BC602A57366000D42095 /* ContentView.swift in Sources */,
 				8B25BC5E2A57366000D42095 /* ft_hangoutsApp.swift in Sources */,
 			);
@@ -606,6 +634,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8BB09E342A580D5300A48F3B /* ContactsData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8BB09E352A580D5300A48F3B /* ContactData.xcdatamodel */,
+			);
+			currentVersion = 8BB09E352A580D5300A48F3B /* ContactData.xcdatamodel */;
+			path = ContactsData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8B25BC522A57366000D42095 /* Project object */;
 }
