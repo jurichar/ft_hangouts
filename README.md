@@ -2,7 +2,7 @@
 
 <div align="center">
   <img src="main-image-url" alt="Project image">
-</div>
+</div> 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/jurichar/ft_hangouts)
 ![GitHub stars](https://img.shields.io/github/stars/jurichar/ft_hangouts)
@@ -52,7 +52,7 @@ The key features of the app include:
 - Swift
 - Xcode
 - iOS
-- SQLite
+- Database
 
 ## Installation
 
