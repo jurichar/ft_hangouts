@@ -58,10 +58,9 @@ The key features of the app include:
 
 To install the project on your local machine:
 
-- Clone the repo: `git clone https://`
+- Clone the repo: `git clone https://github.com/jurichar/ft_hangouts.git`
 - Launch XCode.
 - Open the project.
-- Run the project.
 
 ## Usage
 
