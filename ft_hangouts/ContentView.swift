@@ -1,27 +1,36 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var isShowingNewContact = false
+    
     var body: some View {
         NavigationStack {
             List {
                 ForEach((0...10), id: \.self) { item in
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text ("Name").font(.system(size: 26, design: .rounded).bold())
-                        Text ("Email").font(.callout.bold())
-                        Text ("Number").font(.callout.bold())
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .overlay(alignment: .topTrailing) {
-                        Button {
-                            // TODO : button
-                        } label: {
-                            Image(systemName: "star")
-                                .font(.title3)
-                                .symbolVariant(.fill)
-                                .foregroundColor(.gray.opacity(0.3))
+                    
+                    ZStack (alignment: .leading){
+                        NavigationLink(destination: ContactDetailedView()) {
+                            EmptyView()
                         }
-                        .buttonStyle(.plain)
+                        .opacity(0)
+                        
+                        ContactRowView()
                     }
+                }
+            }
+            .toolbar {
+                ToolbarItem( placement: .primaryAction) {
+                    Button {
+                        isShowingNewContact.toggle()
+                    } label: {
+                        Image(systemName: "plus").font(.title2)
+                    }
+                }
+            }
+            .sheet(isPresented: $isShowingNewContact) {
+                NavigationStack {
+                    CreateContactView()
                 }
             }
             .navigationTitle("Contacts")
