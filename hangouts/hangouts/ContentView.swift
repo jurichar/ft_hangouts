@@ -9,9 +9,6 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State private var speed = 50.0
-    @State private var isEditing = false
-
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
@@ -21,39 +18,27 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        } label: {
-                            Text(item.timestamp!, formatter: itemFormatter)
-                        }
-                    }
-                    .onDelete(perform: deleteItems)
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        EditButton()
-                    }
-                    ToolbarItem {
-                        Button(action: addItem) {
-                            Label("Add Item", systemImage: "plus")
-                        }
+            List {
+                ForEach(items) { item in
+                    NavigationLink {
+                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                    } label: {
+                        Text(item.timestamp!, formatter: itemFormatter)
                     }
                 }
-                Text("Select an item")
-                Slider(
-                    value: $speed,
-                    in: 0...100,
-                    onEditingChanged: { editing in
-                        isEditing = editing
-                    }
-                )
-                Text("\(speed)")
-                    .foregroundColor(isEditing ? .red : .blue)
+                .onDelete(perform: deleteItems)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+                ToolbarItem {
+                    Button(action: addItem) {
+                        Label("Add Item", systemImage: "plus")
+                    }
+                }
+            }
+            Text("Select an item")
         }
     }
 
