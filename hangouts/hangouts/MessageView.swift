@@ -9,21 +9,27 @@
 import SwiftUI
 
 struct MessageView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         VStack {
             HStack {
-                Text("Hangouts")
+                Text("Messages")
                     .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .clipped()
-                Image(systemName: "chevron.left")
-                    .imageScale(.large)
-                    .symbolRenderingMode(.monochrome)
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .symbolRenderingMode(.monochrome)
+                        .accentColor(.primary) // Use the primary color for the icon
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
                 .padding()
-                .frame()
                 .clipped()
             HStack {
                 Text("Jean Denis")
@@ -95,12 +101,13 @@ struct MessageView: View {
         }
         .frame(maxWidth: .infinity)
         .clipped()
-        .padding(.horizontal, 20)
+        .padding(.all, 20)
         .background {
             RoundedRectangle(cornerRadius: 0, style: .continuous)
                 .stroke(.clear, lineWidth: 0)
                 .background(RoundedRectangle(cornerRadius: 0, style: .continuous).fill(Color(.systemBackground)))
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

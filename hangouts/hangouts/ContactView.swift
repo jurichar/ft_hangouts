@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ContactView: View {
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         VStack {
             HStack {
@@ -16,14 +18,18 @@ struct ContactView: View {
                     .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .clipped()
-                Image(systemName: "trash")
-                    .imageScale(.large)
-                    .symbolRenderingMode(.monochrome)
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "trash")
+                        .imageScale(.large)
+                        .symbolRenderingMode(.monochrome)
+                        .accentColor(.primary) // Use the primary color for the icon
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
                 .padding()
-                .frame()
                 .clipped()
             VStack {
                 Circle()
@@ -45,16 +51,20 @@ struct ContactView: View {
                             .padding(.horizontal)
                     }
                 }
-                Text("save")
-                    .font(.system(.title2, design: .monospaced))
-                    .frame(maxWidth: .infinity, alignment: .bottom)
-                    .clipped()
-                    .padding(25)
-                    .background {
-                        RoundedRectangle(cornerRadius: 40, style: .continuous)
-                            .fill(Color(.systemFill))
-                            .padding(10)
-                    }
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("save")
+                        .font(.system(.title2, design: .monospaced))
+                        .frame(maxWidth: .infinity, alignment: .bottom)
+                        .clipped()
+                        .padding(25)
+                        .background {
+                            RoundedRectangle(cornerRadius: 40, style: .continuous)
+                                .fill(Color(.systemFill))
+                                .padding(10)
+                        }
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .clipped()
@@ -65,9 +75,10 @@ struct ContactView: View {
             }
             .padding()
         }
+        .navigationBarBackButtonHidden(true)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .clipped()
-        .padding(.horizontal, 20)
+        .padding(.all, 20)
         .overlay(alignment: .top) {
             Group {
                 
