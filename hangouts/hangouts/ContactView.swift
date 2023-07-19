@@ -1,16 +1,28 @@
 //
 //  ContactView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
 
+
 import SwiftUI
+import CoreData
 
 struct ContactView: View {
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) private var viewContext
 
+    @State private var contactName: String
+    @State private var contactPhoneNumber: String
+    @State private var contactEmail: String
+
+    init(selectedContact: Contact? = nil) {
+        _contactName = State(initialValue: selectedContact?.name ?? "")
+        _contactPhoneNumber = State(initialValue: selectedContact?.number ?? "")
+        _contactEmail = State(initialValue: selectedContact?.surname ?? "")
+    }
+    
     var body: some View {
         VStack {
             HStack {
@@ -19,6 +31,7 @@ struct ContactView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .clipped()
                 Button(action: {
+                    deleteContact()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Image(systemName: "trash")
@@ -33,25 +46,29 @@ struct ContactView: View {
                 .clipped()
             VStack {
                 Circle()
-                    .frame(width: 80, alignment: .center)
+                    .frame(width: 100, alignment: .center)
                     .clipped()
                     .padding(40)
                 VStack {
-                    ForEach(0..<3) { _ in // Replace with your data model here
-                        Text("Jean")
-                            .font(.system(.title2, design: .monospaced))
-                            .foregroundColor(.primary)
-                            .frame(maxWidth: .infinity, maxHeight: 50)
-                            .clipped()
-                            .background {
-                                RoundedRectangle(cornerRadius: 40, style: .continuous)
-                                    .stroke(Color(.quaternaryLabel), lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.systemBackground)))
-                            }
-                            .padding(.horizontal)
-                    }
+                    TextField("Nom", text: $contactName)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                    TextField("Numéro de téléphone", text: $contactPhoneNumber)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .keyboardType(.phonePad)
+                    TextField("Email", text: $contactEmail)
+                        .padding()
+                        .background(Color(.systemGray6))
+                        .cornerRadius(8)
+                        .keyboardType(.emailAddress)
                 }
+                .padding(.all, 20)
+                Spacer()
                 Button(action: {
+                    saveContact()
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
                     Text("save")
@@ -88,6 +105,27 @@ struct ContactView: View {
             RoundedRectangle(cornerRadius: 4, style: .continuous)
                 .fill(Color(.systemBackground))
         }
+    }
+    
+    func saveContact() {
+        PersistenceController.shared.saveContact(name: contactName, surname: contactEmail, number: contactPhoneNumber)
+        presentationMode.wrappedValue.dismiss()
+    }
+    
+    func deleteContact() {
+        let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "name == %@", contactName)
+
+        do {
+            let fetchedContacts = try viewContext.fetch(fetchRequest)
+            if let contact = fetchedContacts.first {
+                PersistenceController.shared.delete(contact: contact)
+            }
+        } catch {
+            print("Erreur lors de la recherche du contact : \(error)")
+        }
+        
+        presentationMode.wrappedValue.dismiss()
     }
 }
 

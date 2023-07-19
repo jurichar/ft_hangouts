@@ -1,14 +1,15 @@
 //
 //  ContactListView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
 
 import SwiftUI
 
 struct ContactListView: View {
+    @FetchRequest(entity: Contact.entity(), sortDescriptors: []) var contacts: FetchedResults<Contact>
+
     var body: some View {
         NavigationView {
             VStack {
@@ -29,20 +30,20 @@ struct ContactListView: View {
                     .clipped()
                 ScrollView {
                     VStack {
-                        ForEach(0..<5) { _ in // Replace with your data model here
+                        ForEach(contacts, id: \.self) { contact in
                             HStack {
                                 NavigationLink(destination: MessageView(), label: {
                                     HStack {
                                         Circle()
                                             .frame(width: 40)
                                             .clipped()
-                                        Text("Jean Denis")
+                                        Text("\(contact.name ?? "") \(contact.surname ?? "")")
                                             .font(.system(.title2, design: .monospaced))
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     })
                                     .clipped()
-                                    NavigationLink(destination: ContactView()) {
+                                    NavigationLink(destination: ContactView(selectedContact: contact)) {
                                         Image(systemName: "pencil")
                                             .imageScale(.large)
                                             .symbolRenderingMode(.monochrome)

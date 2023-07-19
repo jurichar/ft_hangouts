@@ -1,14 +1,15 @@
 //
 //  MessageListView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
 
 import SwiftUI
 
 struct MessageListView: View {
+    @FetchRequest(entity: Message.entity(), sortDescriptors: []) var messages: FetchedResults<Message>
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -25,7 +26,7 @@ struct MessageListView: View {
                     .clipped()
                 ScrollView {
                     VStack(spacing: 20) {
-                        ForEach(0..<10) { _ in // Replace with your data model here
+                        ForEach(messages, id: \.self) { message in
                             NavigationLink(destination: MessageView()) {
                                 
                                 HStack {
@@ -39,7 +40,7 @@ struct MessageListView: View {
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .clipped()
                                             .padding(.bottom, 5)
-                                        Text("Lorem ipsum lolorem poqk pqofofowkeoke…")
+                                        Text("Message test")
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .clipped()
                                             .font(.system(.body, design: .monospaced))

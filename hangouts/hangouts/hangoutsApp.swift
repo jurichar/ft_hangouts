@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct hangoutsApp: App {
@@ -14,6 +15,7 @@ struct hangoutsApp: App {
     var body: some Scene {
         WindowGroup {
             AppView()
+            .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

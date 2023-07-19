@@ -1,15 +1,16 @@
 //
 //  MessageView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
+
 
 import SwiftUI
 
 struct MessageView: View {
     @Environment(\.presentationMode) var presentationMode
+    @State private var inputMessage: String = ""
 
     var body: some View {
         VStack {
@@ -86,12 +87,9 @@ struct MessageView: View {
             Divider()
                 .padding(10)
             HStack {
-                Rectangle()
-                    .stroke(Color(.quaternaryLabel), lineWidth: 0)
-                    .background(Rectangle().fill(Color(.quaternaryLabel)))
-                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .bottom)
-                    .clipped()
-                    .mask { RoundedRectangle(cornerRadius: 40, style: .continuous) }
+                TextField("Ecrire un message...", text: $inputMessage)
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
                 Image(systemName: "paperplane")
                     .imageScale(.large)
             }
