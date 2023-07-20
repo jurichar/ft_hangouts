@@ -18,7 +18,6 @@ struct MessageListView: View {
                         .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .clipped()
-                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()

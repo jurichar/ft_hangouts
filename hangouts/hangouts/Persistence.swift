@@ -25,10 +25,10 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
-    func saveMessage(sender: String, content: String){
+    func saveMessage(name: String, content: String){
         let newMessage = Message(context: container.viewContext)
         newMessage.content = content
-        newMessage.sender = sender
+        newMessage.name = name
     }
     
     func saveContact(name: String, surname: String, number: String) {

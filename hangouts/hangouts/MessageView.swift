@@ -25,7 +25,7 @@ struct MessageView: View {
                     Image(systemName: "chevron.left")
                         .imageScale(.large)
                         .symbolRenderingMode(.monochrome)
-                        .accentColor(.primary) // Use the primary color for the icon
+                        .accentColor(.primary)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -40,7 +40,7 @@ struct MessageView: View {
             }
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(0..<5) { _ in // Replace with your data model here
+                    ForEach(0..<5) { _ in
                         HStack {
                             Circle()
                                 .frame(width: 40)
