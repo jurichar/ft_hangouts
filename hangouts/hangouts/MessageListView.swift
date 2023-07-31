@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct MessageListView: View {
-    @FetchRequest(entity: Message.entity(), sortDescriptors: []) var messages: FetchedResults<Message>
-    
+    @FetchRequest(entity: Contact.entity(), sortDescriptors: []) var contacts: FetchedResults<Contact>
+
     var body: some View {
         NavigationView {
             VStack {
@@ -25,21 +26,20 @@ struct MessageListView: View {
                     .clipped()
                 ScrollView {
                     VStack(spacing: 20) {
-                        ForEach(messages, id: \.self) { message in
-                            NavigationLink(destination: MessageView()) {
-                                
+                        ForEach(contacts, id: \.self) { contact in
+                            NavigationLink(destination: MessageView(contact: contact)) {
                                 HStack {
                                     Circle()
                                         .frame(width: 40)
                                         .clipped()
                                         .padding(.trailing)
                                     VStack {
-                                        Text("Jean Denis")
+                                        Text("\(contact.name ?? "")")
                                             .font(.system(.title2, design: .monospaced))
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .clipped()
                                             .padding(.bottom, 5)
-                                        Text("Message test")
+                                        Text(contact.name ?? "")
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .clipped()
                                             .font(.system(.body, design: .monospaced))

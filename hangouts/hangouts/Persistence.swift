@@ -25,10 +25,18 @@ struct PersistenceController {
         container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
-    func saveMessage(name: String, content: String){
-        let newMessage = Message(context: container.viewContext)
-        newMessage.content = content
-        newMessage.name = name
+    func updateContact(contact: Contact, name: String, surname: String, number: String) {
+        contact.name = name
+        contact.surname = surname
+        contact.number = number
+
+        save()
+    }
+    
+    func deleteContact(contact: Contact) {
+        container.viewContext.delete(contact)
+        
+        save()
     }
     
     func saveContact(name: String, surname: String, number: String) {
@@ -40,8 +48,17 @@ struct PersistenceController {
         save()
     }
     
-    func delete(contact: Contact) {
-        container.viewContext.delete(contact)
+    func saveMessage(content: String, from contact: Contact) {
+        let newMessage = Message(context: container.viewContext)
+        newMessage.content = content
+        newMessage.date = Date()
+        newMessage.contact = contact
+        
+        save()
+    }
+    
+    func deleteMessage(message: Message) {
+        container.viewContext.delete(message)
         
         save()
     }

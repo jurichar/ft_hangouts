@@ -32,24 +32,18 @@ struct ContactListView: View {
                     VStack {
                         ForEach(contacts, id: \.self) { contact in
                             HStack {
-                                NavigationLink(destination: MessageView(), label: {
+                                NavigationLink(destination: ContactView(selectedContact: contact), label: {
                                     HStack {
                                         Circle()
                                             .frame(width: 40)
                                             .clipped()
                                         Text("\(contact.name ?? "") \(contact.surname ?? "")")
                                             .font(.system(.title2, design: .monospaced))
+                                            .foregroundColor(.black)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     })
                                     .clipped()
-                                    NavigationLink(destination: ContactView(selectedContact: contact)) {
-                                        Image(systemName: "pencil")
-                                            .imageScale(.large)
-                                            .symbolRenderingMode(.monochrome)
-                                            .padding(.leading, 0)
-                                }
-                                .buttonStyle(PlainButtonStyle())
                             }
                             .padding()
                             .frame(maxWidth: .infinity)
@@ -57,7 +51,6 @@ struct ContactListView: View {
                             .background {
                                 RoundedRectangle(cornerRadius: 15, style: .continuous)
                                     .stroke(Color(.quaternaryLabel), lineWidth: 1)
-                                    .background(RoundedRectangle(cornerRadius: 15, style: .continuous).fill(Color(.systemBackground)))
                             }
                         }
                         .multilineTextAlignment(.trailing)

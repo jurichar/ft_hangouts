@@ -17,19 +17,22 @@ struct ContactView: View {
     @State private var contactPhoneNumber: String
     @State private var contactEmail: String
 
-    init(selectedContact: Contact? = nil) {
-        _contactName = State(initialValue: selectedContact?.name ?? "")
-        _contactPhoneNumber = State(initialValue: selectedContact?.number ?? "")
-        _contactEmail = State(initialValue: selectedContact?.surname ?? "")
+    public var selectedContact: Contact?
+
+    init(selectedContact: Contact? = nil)
+    {
+        _contactName = State(initialValue: selectedContact?.name ?? "nil")
+        _contactPhoneNumber = State(initialValue: selectedContact?.number ?? "nil")
+        _contactEmail = State(initialValue: selectedContact?.surname ?? "nil")
     }
     
     var body: some View {
         VStack {
             HStack {
-                Text("Hangouts")
-                    .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .clipped()
+                    Text("Hangouts")
+                        .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .clipped()
                 Button(action: {
                     deleteContact()
                     self.presentationMode.wrappedValue.dismiss()
@@ -108,7 +111,13 @@ struct ContactView: View {
     }
     
     func saveContact() {
-        PersistenceController.shared.saveContact(name: contactName, surname: contactEmail, number: contactPhoneNumber)
+        if let selectedContact = selectedContact {
+            // Update the existing contact
+            PersistenceController.shared.updateContact(contact: selectedContact, name: contactName, surname: contactEmail, number: contactPhoneNumber)
+        } else {
+            // Create a new contact
+            PersistenceController.shared.saveContact(name: contactName, surname: contactEmail, number: contactPhoneNumber)
+        }
         presentationMode.wrappedValue.dismiss()
     }
     
@@ -119,7 +128,7 @@ struct ContactView: View {
         do {
             let fetchedContacts = try viewContext.fetch(fetchRequest)
             if let contact = fetchedContacts.first {
-                PersistenceController.shared.delete(contact: contact)
+                PersistenceController.shared.deleteContact(contact: contact)
             }
         } catch {
             print("Erreur lors de la recherche du contact : \(error)")
@@ -129,8 +138,8 @@ struct ContactView: View {
     }
 }
 
-struct ContactView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactView()
-    }
-}
+//struct ContactView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContactView()
+//    }
+//}
