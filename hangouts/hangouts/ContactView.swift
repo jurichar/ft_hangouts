@@ -12,27 +12,28 @@ import CoreData
 struct ContactView: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
-
+    
+    @State private var contactSurname: String
     @State private var contactName: String
     @State private var contactPhoneNumber: String
-    @State private var contactEmail: String
-
+    
     public var selectedContact: Contact?
-
-    init(selectedContact: Contact? = nil)
-    {
-        _contactName = State(initialValue: selectedContact?.name ?? "nil")
-        _contactPhoneNumber = State(initialValue: selectedContact?.number ?? "nil")
-        _contactEmail = State(initialValue: selectedContact?.surname ?? "nil")
+    
+    init(selectedContact: Contact? = nil) {
+        _contactSurname = State(initialValue: selectedContact?.surname ?? "")
+        _contactName = State(initialValue: selectedContact?.name ?? "")
+        _contactPhoneNumber = State(initialValue: selectedContact?.number ?? "")
+        
+        self.selectedContact = selectedContact
     }
     
     var body: some View {
         VStack {
             HStack {
-                    Text("Hangouts")
-                        .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clipped()
+                Text("Hangouts")
+                    .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .clipped()
                 Button(action: {
                     deleteContact()
                     self.presentationMode.wrappedValue.dismiss()
@@ -44,6 +45,7 @@ struct ContactView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            
             Divider()
                 .padding()
                 .clipped()
@@ -53,16 +55,16 @@ struct ContactView: View {
                     .clipped()
                     .padding(40)
                 VStack {
-                    TextField("Nom", text: $contactName)
+                    TextField("Surname", text: $contactSurname)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
-                    TextField("Numéro de téléphone", text: $contactPhoneNumber)
+                    TextField("Name", text: $contactName)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                         .keyboardType(.phonePad)
-                    TextField("Email", text: $contactEmail)
+                    TextField("Number", text: $contactPhoneNumber)
                         .padding()
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
@@ -111,12 +113,14 @@ struct ContactView: View {
     }
     
     func saveContact() {
-        if let selectedContact = selectedContact {
+        if let existingContact = selectedContact {
             // Update the existing contact
-            PersistenceController.shared.updateContact(contact: selectedContact, name: contactName, surname: contactEmail, number: contactPhoneNumber)
+            print("Mise à jour du contact existant")
+            PersistenceController.shared.updateContact(contact: existingContact, name: contactName, surname: contactSurname, number: contactPhoneNumber)
         } else {
             // Create a new contact
-            PersistenceController.shared.saveContact(name: contactName, surname: contactEmail, number: contactPhoneNumber)
+            print("Création d'un nouveau contact")
+            PersistenceController.shared.saveContact(name: contactName, surname: contactSurname, number: contactPhoneNumber)
         }
         presentationMode.wrappedValue.dismiss()
     }
@@ -124,7 +128,7 @@ struct ContactView: View {
     func deleteContact() {
         let fetchRequest: NSFetchRequest<Contact> = Contact.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "name == %@", contactName)
-
+        
         do {
             let fetchedContacts = try viewContext.fetch(fetchRequest)
             if let contact = fetchedContacts.first {
@@ -137,9 +141,3 @@ struct ContactView: View {
         presentationMode.wrappedValue.dismiss()
     }
 }
-
-//struct ContactView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ContactView()
-//    }
-//}
