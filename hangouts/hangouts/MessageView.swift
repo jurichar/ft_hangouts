@@ -8,12 +8,16 @@
 
 import SwiftUI
 import CoreData
+import MessageUI
 
 struct MessageView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) private var viewContext
 
     @State private var inputMessage: String = ""
+    @State private var isShowingMessageComposer = false
+
     var contact: Contact
     
     @FetchRequest(entity: Message.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Message.date, ascending: true)]) var messages: FetchedResults<Message>
@@ -103,6 +107,7 @@ struct MessageView: View {
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
                 Button(action: {
+                    sendMessage()
                     saveMessage()
                 }) {
                     Image(systemName: "paperplane")
@@ -124,6 +129,14 @@ struct MessageView: View {
         .navigationBarBackButtonHidden(true)
     }
     
+    func sendMessage () {
+        if (MFMessageComposeViewController.canSendText()) {
+            print ("Can send text")
+        } else {
+            print ("Can't send text")
+        }
+    }
+
     func fetchMessages(for contact: Contact) -> [Message] {
         let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "contact == %@", contact)
