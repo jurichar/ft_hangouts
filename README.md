@@ -76,7 +76,7 @@ To use the app:
 
 ## Screenshots
 
-![userframe](./userframe.png)
+![userflow](./userflow.png)
 
 ![design](./design.png)
 
