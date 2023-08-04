@@ -76,9 +76,9 @@ To use the app:
 
 ## Screenshots
 
-<div align="center">
-  <img src="screenshot-url" alt="Screenshot of the app">
-</div>
+![userframe](./userframe.png)
+
+![design](./design.png)
 
 ## License
 
