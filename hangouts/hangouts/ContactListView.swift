@@ -1,88 +1,70 @@
 //
 //  ContactListView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
 
 import SwiftUI
 
 struct ContactListView: View {
+    @FetchRequest(entity: Contact.entity(), sortDescriptors: []) var contacts: FetchedResults<Contact>
+
     var body: some View {
-        VStack {
-            HStack {
-                Text("Hangouts")
-                    .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .clipped()
-                Image(systemName: "plus")
-                    .imageScale(.large)
-                    .symbolRenderingMode(.monochrome)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Divider()
-                .padding()
-                .frame()
-                .clipped()
-            ScrollView {
-                VStack {
-                    ForEach(0..<5) { _ in // Replace with your data model here
-                        HStack {
-                            HStack {
-                                Circle()
-                                    .frame(width: 40)
-                                    .clipped()
-                                Text("Jean Denis")
-                                    .font(.system(.title2, design: .monospaced))
-                            }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .clipped()
-                            Image(systemName: "pencil")
-                                .imageScale(.large)
-                                .symbolRenderingMode(.monochrome)
-                                .padding(.leading, 0)
-                        }
-                        .padding()
-                        .frame(maxWidth: .infinity)
+        NavigationView {
+            VStack {
+                HStack {
+                    Text("Hangouts")
+                        .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
+                        .frame(maxWidth: .infinity, alignment: .leading)
                         .clipped()
-                        .background {
-                            RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                .stroke(Color(.quaternaryLabel), lineWidth: 1)
-                                .background(RoundedRectangle(cornerRadius: 15, style: .continuous).fill(Color(.systemBackground)))
-                        }
-                    }
-                    .multilineTextAlignment(.trailing)
+                    NavigationLink(destination: ContactView()) {
+                        Image(systemName: "plus")
+                            .imageScale(.large)
+                            .symbolRenderingMode(.monochrome)
                 }
-            }
-            Divider()
-            HStack(spacing: 0) {
-                ForEach(0..<2) { _ in // Replace with your data model here
-                    VStack(spacing: 10) {
-                        Image(systemName: "paperplane")
-                        Text("Hello, World!")
-                            .font(.system(.body, design: .monospaced))
-                    }
-                    .frame(maxWidth: .infinity, alignment: .center)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                Divider()
+                    .padding()
                     .clipped()
-                    .padding(.top)
-                }
+                ScrollView {
+                    VStack {
+                        ForEach(contacts, id: \.self) { contact in
+                            HStack {
+                                NavigationLink(destination: ContactView(selectedContact: contact), label: {
+                                    HStack {
+                                        Circle()
+                                            .frame(width: 40)
+                                            .clipped()
+                                        Text("\(contact.name ?? "") \(contact.surname ?? "")")
+                                            .font(.system(.title2, design: .monospaced))
+                                            .foregroundColor(.black)
+                                    }
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    })
+                                    .clipped()
+                            }
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                            .clipped()
+                            .background {
+                                RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                    .stroke(Color(.quaternaryLabel), lineWidth: 1)
+                            }
+                        }
+                        .multilineTextAlignment(.trailing)
+                       }
+                    }
             }
             .frame(maxWidth: .infinity)
             .clipped()
-        }
-        .frame(maxWidth: .infinity)
-        .clipped()
-        .padding(.horizontal, 20)
-        .overlay(alignment: .top) {
-            Group {
-                
+            .padding(.all, 20)
             }
-        }
-        .background {
-            RoundedRectangle(cornerRadius: 4, style: .continuous)
-                .fill(Color(.systemBackground))
-        }
+            .background {
+                RoundedRectangle(cornerRadius: 4, style: .continuous)
+                    .fill(Color(.systemBackground))
+            }
     }
 }
 

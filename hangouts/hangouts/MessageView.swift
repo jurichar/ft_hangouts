@@ -1,93 +1,118 @@
 //
 //  MessageView.swift
-//  MyProject
+//  hangouts
 //
-//  Designed in DetailsPro
-//  Copyright © (My Organization). All rights reserved.
+//  Created by Julien Richard on 18/07/2023.
 //
+
 
 import SwiftUI
+import CoreData
+import MessageUI
 
 struct MessageView: View {
+    
+    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) private var viewContext
+
+    @State private var inputMessage: String = ""
+    @State private var isShowingMessageComposer = false
+
+    var contact: Contact
+    
+    @FetchRequest(entity: Message.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Message.date, ascending: true)]) var messages: FetchedResults<Message>
+
     var body: some View {
         VStack {
             HStack {
-                Text("Hangouts")
+                Text("Messages")
                     .font(.system(.largeTitle, design: .monospaced, weight: .ultraLight))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .clipped()
-                Image(systemName: "chevron.left")
-                    .imageScale(.large)
-                    .symbolRenderingMode(.monochrome)
+                Button(action: {
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "chevron.left")
+                        .imageScale(.large)
+                        .symbolRenderingMode(.monochrome)
+                        .accentColor(.primary)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             Divider()
                 .padding()
-                .frame()
                 .clipped()
             HStack {
-                Text("Jean Denis")
+                Text(contact.name ?? "unknown")
                     .font(.system(.title2, design: .monospaced))
                     .frame(maxWidth: .infinity)
                     .clipped()
             }
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(0..<5) { _ in // Replace with your data model here
-                        HStack {
-                            Circle()
-                                .frame(width: 40)
-                                .clipped()
-                                .padding(.trailing)
-                            Text("Lorem ipsum lolorem owokke… popow;l'wkpokokpko")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .clipped()
-                                .font(.system(.body, design: .monospaced))
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clipped()
-                        .padding()
-                        .background {
-                            RoundedRectangle(cornerRadius: 40, style: .continuous)
-                                .stroke(Color(.quaternaryLabel), lineWidth: 2)
-                                .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.systemBackground)))
-                        }
-                    }
-                    .multilineTextAlignment(.leading)
-                    ForEach(0..<5) { _ in // Replace with your data model here
-                        HStack {
-                            Text("Lorem ipsum lolorem oke…")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .clipped()
-                                .font(.system(.body, design: .monospaced))
-                            Circle()
-                                .frame(width: 40)
-                                .clipped()
-                                .padding(.leading)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .clipped()
-                        .padding()
-                        .background {
-                            RoundedRectangle(cornerRadius: 40, style: .continuous)
-                                .stroke(Color(.quaternaryLabel), lineWidth: 2)
-                                .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.secondarySystemBackground)))
+                    ForEach(fetchMessages(for: contact), id: \.self) { message in
+                        if (message.content != "Pouet") {
+                            HStack {
+                                Button(action: {
+                                    deleteMessage(message)
+                                }) {
+                                    Circle()
+                                        .frame(width: 40)
+                                        .clipped()
+                                        .padding(.trailing)
+                                    Text(message.content ?? "")
+                                        .frame(maxWidth: .infinity, alignment: .leading)
+                                        .clipped()
+                                        .font(.system(.body, design: .monospaced))
+                                }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .clipped()
+                            .padding()
+                            .background {
+                                RoundedRectangle(cornerRadius: 40, style: .continuous)
+                                    .stroke(Color(.quaternaryLabel), lineWidth: 2)
+                                    .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.systemBackground)))
+                            }
                         }
                     }
                     .multilineTextAlignment(.leading)
+//                    ForEach(0..<5) { _ in // Replace with your data model here
+//                        HStack {
+//                            Text("Lorem ipsum lolorem oke…")
+//                                .frame(maxWidth: .infinity, alignment: .leading)
+//                                .clipped()
+//                                .font(.system(.body, design: .monospaced))
+//                            Circle()
+//                                .frame(width: 40)
+//                                .clipped()
+//                                .padding(.leading)
+//                        }
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+//                        .clipped()
+//                        .padding()
+//                        .background {
+//                            RoundedRectangle(cornerRadius: 40, style: .continuous)
+//                                .stroke(Color(.quaternaryLabel), lineWidth: 2)
+//                                .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.secondarySystemBackground)))
+//                        }
+//                    }
+//                    .multilineTextAlignment(.leading)
                 }
             }
             Divider()
                 .padding(10)
             HStack {
-                Rectangle()
-                    .stroke(Color(.quaternaryLabel), lineWidth: 0)
-                    .background(Rectangle().fill(Color(.quaternaryLabel)))
-                    .frame(maxWidth: .infinity, maxHeight: 50, alignment: .bottom)
-                    .clipped()
-                    .mask { RoundedRectangle(cornerRadius: 40, style: .continuous) }
-                Image(systemName: "paperplane")
-                    .imageScale(.large)
+                TextField("Ecrire un message...", text: $inputMessage)
+                    .padding(10)
+                    .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
+                Button(action: {
+                    sendMessage()
+                    saveMessage()
+                }) {
+                    Image(systemName: "paperplane")
+                        .imageScale(.large)
+                }
             }
             .frame(maxWidth: .infinity)
             .clipped()
@@ -95,17 +120,47 @@ struct MessageView: View {
         }
         .frame(maxWidth: .infinity)
         .clipped()
-        .padding(.horizontal, 20)
+        .padding(.all, 20)
         .background {
             RoundedRectangle(cornerRadius: 0, style: .continuous)
                 .stroke(.clear, lineWidth: 0)
                 .background(RoundedRectangle(cornerRadius: 0, style: .continuous).fill(Color(.systemBackground)))
         }
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    func sendMessage () {
+        if (MFMessageComposeViewController.canSendText()) {
+            print ("Can send text")
+        } else {
+            print ("Can't send text")
+        }
+    }
+
+    func fetchMessages(for contact: Contact) -> [Message] {
+        let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "contact == %@", contact)
+        do {
+            let messages = try viewContext.fetch(fetchRequest)
+            return messages
+        } catch {
+            print("Error fetching messages: \(error)")
+            return []
+        }
+    }
+    
+    func deleteMessage(_ message: Message) {
+            viewContext.delete(message)
+            PersistenceController.shared.save()
+    }
+    
+    func saveMessage() {
+        PersistenceController.shared.saveMessage(content: inputMessage, from: contact)
     }
 }
 
-struct MessageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessageView()
-    }
-}
+//struct MessageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MessageView()
+//    }
+//}
