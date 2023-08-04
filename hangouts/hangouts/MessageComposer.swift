@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 import MessageUI
 
 struct MessageComposer: UIViewControllerRepresentable {
@@ -42,4 +41,3 @@ struct MessageComposer: UIViewControllerRepresentable {
         }
     }
 }
-
