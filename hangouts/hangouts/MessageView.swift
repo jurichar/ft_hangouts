@@ -17,6 +17,7 @@ struct MessageView: View {
 
     @State private var inputMessage: String = ""
     @State private var isShowingMessageComposer = false
+    @State private var isShowingSMSComposer: Bool = false
 
     var contact: Contact
     
@@ -118,6 +119,9 @@ struct MessageView: View {
             .clipped()
             .padding(10)
         }
+        .sheet(isPresented: $isShowingSMSComposer) {
+            MessageComposer(recipient: self.contact.number ?? "+33633490740", bodyText: self.inputMessage)
+        }
         .frame(maxWidth: .infinity)
         .clipped()
         .padding(.all, 20)
@@ -129,11 +133,12 @@ struct MessageView: View {
         .navigationBarBackButtonHidden(true)
     }
     
-    func sendMessage () {
-        if (MFMessageComposeViewController.canSendText()) {
-            print ("Can send text")
+    func sendMessage() {
+        if MFMessageComposeViewController.canSendText() {
+            print("Can send text")
+            isShowingSMSComposer = true
         } else {
-            print ("Can't send text")
+            print("Can't send text")
         }
     }
 
