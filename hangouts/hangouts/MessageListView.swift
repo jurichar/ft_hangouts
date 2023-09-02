@@ -34,7 +34,7 @@ struct MessageListView: View {
                                         .clipped()
                                         .padding(.trailing)
                                     VStack {
-                                        Text("\(contact.name ?? "")")
+                                        Text("\(contact.surname ?? "")")
                                             .font(.system(.title2, design: .monospaced))
                                             .frame(maxWidth: .infinity, alignment: .leading)
                                             .clipped()
@@ -51,7 +51,7 @@ struct MessageListView: View {
                                 .clipped()
                                 .padding()
                                 .background {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                    RoundedRectangle(cornerRadius: 20, style: .continuous)
                                         .stroke(Color(.quaternaryLabel), lineWidth: 2)
                                         .background(RoundedRectangle(cornerRadius: 40, style: .continuous).fill(Color(.systemBackground)))
                                 }

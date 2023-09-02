@@ -108,7 +108,7 @@ struct MessageView: View {
                     .padding(10)
                     .background(RoundedRectangle(cornerRadius: 20).fill(Color(.systemGray5)))
                 Button(action: {
-                    sendMessage()
+//                    sendMessage()
                     saveMessage()
                 }) {
                     Image(systemName: "paperplane")

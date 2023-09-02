@@ -39,7 +39,7 @@ struct ContactListView: View {
                                             .clipped()
                                         Text("\(contact.name ?? "") \(contact.surname ?? "")")
                                             .font(.system(.title2, design: .monospaced))
-                                            .foregroundColor(.black)
+//                                            .foregroundColor(.black)
                                     }
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                     })
